@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Nobiscumdeus Foundations on Static Files </title>
+         <style type="text/css">
+            body{
+                background-color:green;
+                font-size:30px;
+            }
+            h1{
+                font-size:larger;
+                color:pink;
+            }
+        </style>
+        {% load static %}
+        <link href="{% static 'C:/Users/HP/websiteapp/vote/templates/love.css' %}"  rel="stylesheet">
+        
+    </head>
+    <body>
+        <h1> Working on images </h1>
+        <ol>
+            <li> Unity within Diversity is the Community of the Trinity </li>
+            <li> Outside of God and His Word, there is no meaning to life </li>
+            <li> Education with God makes man a rather more clever Devil </li>
+            <li> Christ comes soon. Surrender to him today </li>
+        </ol>
+    </body>
+    </html> -->
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF_8">
+            <title> Index </title>
+            <style type="text/css">
+                body{
+                    background-color:purple;
+                    font-size:30px;
+                }
+            </style>
+        </head>
+        <body>
+            <form method="POST" class="post-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default"> Save </button>
+            </form>
+        </body>
+        </html>

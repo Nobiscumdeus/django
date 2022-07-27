@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title> Welcome Dear User  </title>
+    <style type="text/css">
+        body{
+            background-color:green;
+        }
+        div{
+            width:600px;
+            text-align:center;
+            justify-content:center;
+            color:blue;
+            
+            top:350px;
+            left:350px;
+            transform:translate(50%,100%);
+        }
+    </style>
+</head>
+<body>
+    <div>
+{% block content %}
+<h1> Welcome, {{ user.username }} </h1>
+{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'todo/second.css' %}"/>
+<ul>
+    {% for y in updated_content %}
+    <li> {{y.content}} </li>
+    {% endfor %}
+  
+
+</ul>

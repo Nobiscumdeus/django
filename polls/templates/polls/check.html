@@ -1,0 +1,20 @@
+<body style="background-color:{% cycle 'green' 'blue' 'coral' 'grey' %}">
+{% if x is y %}
+<h1> Yes, Values in X are same as that of Y </h1>
+{% comment %}
+{% endcomment %}
+<ul> They are : 
+    <li> {{x}} </li>
+    <li> {{y}} </li>
+</ul>
+{% else %}
+<h1 style='background-color:{% cycle 'lightblue' 'pink' 'yellow' 'coral' 'grey' %}'> NO, values in X are not same as Y </h1>
+{% endif %}
+<hr/>
+<h2> Welcome Everyone, for larger comments, use the code below </h2>
+{% comment "This was the original welcome message " %}
+<h3> Welcome ladies and gentlemen </h3>
+{% endcomment %}
+<p> For smaller comments , use the code below </p>
+{# This is for a smallr comment dear user #}
+</body>

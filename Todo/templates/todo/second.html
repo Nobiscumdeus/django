@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'todo/second.css' %}" />
+<h1> This is our To do app , powered by Nobiscumdeus Tech Foundations </h1>
+
+<ul>
+    <button> <a href="{% url 'todo:todoView' %}"> Add more records </a> </button> <br><br>
+    {% for x in all_items %}
+    <li> {{x.content}} 
+        <form method="post" action="deleteTodo/{{x.id}}/ " style="display:block">
+            {% csrf_token %}
+            <input type="submit" value="Delete" name="submit" />
+            <button> <a href="#"> Updated Record </a></button>
+            
+        </form>
+
+        
+      
+    </li>
+    {% endfor %}
+</ul>
+

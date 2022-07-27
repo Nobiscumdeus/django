@@ -1,0 +1,46 @@
+<!--<h1> Members </h1> -->
+<html>
+    <head>
+        <title>
+            {% block title %} Adeolas website {% endblock %}
+             </title>
+        <style type="text/css">
+            body{
+                background-color:green;
+                font-size:25px;
+                color:gold;
+            }
+            table{
+                border-style:2px solid black;
+                font-size:18px;
+            }
+            tr td{
+                margin:10px;
+                padding:10px;
+            }
+            a{
+                text-decoration:none;
+            }
+            a:hover{
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <h3> The Details of the Names in the Adeolas </h3>
+        {% if mine %}
+<table>
+    {% for x in mine %}
+    <tr>
+        <td> {{ x.id }} </td>
+        <td> {{ x.firstname }} </td>
+        <td> {{ x.lastname }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p> There are no details available </p>
+{% endif %}
+<button> <a href="add/" > Add a new record </a></button>
+</body>
+</html>

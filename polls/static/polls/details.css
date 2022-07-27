@@ -1,0 +1,12 @@
+body{
+    background-color:yellow;
+    color:black;
+    font-size:larger;
+    font-weight:800;
+}
+a{
+    text-decoration:none;
+}
+button {
+    display:inline;
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body{
+                background:#f4f2f7;
+                font-family:'Open sans','sans-serif';
+            }
+            input{
+                width:300px;
+                height:30px;
+            }
+            button{
+                width:150px;
+                height:25px;
+                color:blue;
+                background-color:transparent;
+                border:none;
+               
+            }
+            i{
+                font-weight:800;
+                font-size:18px;
+            }
+            a{
+                text-decoration:none;
+                font-weight:800;
+                width:150px;
+            }
+            a:hover{
+                color:blue;
+                background-color:yellow;
+                font-size:18px;
+                
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="search">
+                <h1>Results of your search </h1>
+                {% comment %}
+                <form action="word">
+                <input type="text" name="search" class="searchTerm" placeholder="Search for word" />
+               
+                <button type='submit' class='searchButton'>
+                    <i class="fa fa-search"> Search for word </i>
+                </button>
+                </form>
+
+                <h3> Meaning : {{ meaning }} </h3>
+              
+          
+            <h3> Synonyms: {% for synonym in synonyms %}
+                    {{ synonym }},
+                {% endfor %}
+            </h3> 
+            <h3> Antonyms:
+                {% for antonym in antonyms %}
+                {{ antonym }},
+                {% endfor %}
+            </h3>
+            {% endcomment %}
+            <h3> {{ meaning }} </h3>
+            </div>
+        </div>
+      
+        <a href="{% url 'dictionary:index' %}"> Check another word </a>
+        <footer>
+            <i> Developed by Nobiscumdeus Tech Foundations </i>
+        </footer>
+       
+    </body>
+</html>

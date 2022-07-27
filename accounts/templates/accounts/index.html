@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Simple authentication system</title>
+        <style type="text/css">
+            body{
+                background-color:yellow;
+                font-size:18px;
+                color:blue;
+            }
+        </style>
+    </head>
+    <body>
+        {% block content %}
+
+
+        <h2> Welcome Home, from Homepage</h2>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}"> Logout </a>
+        {% else %}
+        <a href="{% url 'login_url' %}"> Login </a>
+        <a href="{% url 'register_url' %}"> Register </a>
+        {% endif %}
+
+
+        {% endblock %}
+    </body>
+</html>

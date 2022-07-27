@@ -1,0 +1,15 @@
+<table border="1">
+    <tr>
+        <th> ID </th>
+        <th> First Names </th>
+        <th> Last Names </th>
+    </tr>
+    {% for x in mymembers %}
+    <tr>
+        <td> {{x.id}} </td>
+        <td> {{x.first_name }} </td>
+        <td> {{ x.last_name }} </td>
+
+    </tr>
+    {% endfor %}
+</table>

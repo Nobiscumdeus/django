@@ -1,0 +1,1 @@
+window.alert("You are welcome to Javascript in Django powered by Nobiscumdeus");

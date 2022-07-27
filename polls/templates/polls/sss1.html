@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Rose of Sharon sss1 Records
+        </title>
+        <style type="text/css">
+            body{
+                font-size:20px;
+            }
+            a{
+                text-decoration:none;
+            }
+        </style>
+    </head>
+   <body>
+       <h2> These are the present records in Rose of Sharon sss1 </h2>
+       {% if records %}
+      <ul>
+          {% for student in records %}
+          <li> 
+              <a href="#"> {{student.fullnames}} </a>
+          </li>
+          {% endfor %}
+      </ul>
+      {% else %}
+      <p> No records are presently available </p>
+      {%endif%}
+   </body>
+    </html>
+
