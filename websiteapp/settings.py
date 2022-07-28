@@ -154,3 +154,6 @@ LOGIN_REDIRECT_URL='accounts/dashboard'
 
 #We are just adding this configuration below for heroku
 django_heroku.settings(locals())
+
+#We may later add this to the procfile app
+#web: gunicorn websiteapp.wsgi:application--log-file-
