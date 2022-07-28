@@ -28,8 +28,8 @@ SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 #The * here is to alllow all hosts
-ALLOWED_HOSTS = ['127.0.0.1','dictionary22.herokuapp.com']
-
+#ALLOWED_HOSTS = ['127.0.0.1','nobiscumdeus2022.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
