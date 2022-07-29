@@ -36,6 +36,7 @@ mccabe==0.6.1
 olefile
 orderedmultidict==1.0.1
 #Pillow @ file:///D:/bld/pillow_1636559064986/work
+Pillow
 #platformdirs @ file:///home/conda/feedstock_root/build_artifacts/platformdirs_1630400214373/work
 platformdirs
 #psycopg2 @ file:///C:/ci/psycopg2_1594305209841/work
