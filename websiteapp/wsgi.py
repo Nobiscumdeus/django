@@ -12,5 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'websiteapp.settings')
-
-application = get_wsgi_application()
+#Note initially from dj_static import Cling wasn't here. It bascially for static files 
+from dj_static import Cling
+#Initially this was application=get_wsgi_application()
+application = Cling(get_wsgi_application())
