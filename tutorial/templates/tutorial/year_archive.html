@@ -1,0 +1,26 @@
+{% extends 'tutorial/base.html' %}
+{% comment %}
+1. We would ass our template here and use the variables in quote from the views.py
+2. the year is coming from the views 
+3. we are placing the year in double curly brackets because it represents a variable coming from views.py
+{% endcomment %}
+
+{% comment %} This block is for title , hence block title{% endcomment %}
+{% block title %} Articles for {{ year }}{% endblock %}
+{% comment %} Below is now our content block {% endcomment %}
+{% block content %} 
+<h1> Articles for {{ year }}</h1>
+
+{% for article in article_list %} 
+<p> <h4>Title :</h4> {{ article.headline }}</p>
+<p> <h4>Written by : </h4> {{ article.reporter.full_name }}</p>
+<p> <h4>Date Published : </h4> {{ article.pub_date|date:"F, j, Y" }}</p>
+<p> <h5> {{ article.content }}</h5></p>
+
+<hr/>
+
+
+
+{% endfor %}
+
+{% endblock %}

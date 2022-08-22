@@ -12,6 +12,10 @@ urlpatterns=[
     path('addTodo/deleteTodo/<int:todo_id>/',views.deleteTodo,name='deleteTodo'),
     path('updated/',views.updatedContent,name='updatedContent'),
     path('addTodo',views.addTodo,name='addTodo'),
+    path('time/',views.time,name="time"),
+    path('index/',views.index,name='index'),
+    path('application/',views.application,name='application'),
+    path('portfolio/',views.portfolio,name='portfolio'),
     
     
   

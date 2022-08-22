@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" >
+        <title> Index </title>
+    </head>
+    <body>
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn default"> Save </button>
+        </form>
+    </body>
+    </html>

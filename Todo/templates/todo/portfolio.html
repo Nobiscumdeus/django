@@ -1,0 +1,166 @@
+{% load static %}
+<!--
+<h1> Hello world </h1>
+
+<img width=300 height=200 src="{% static 'C:/Users/HP/websiteapp/static/images/DSC_5286.JPG' %}" alt="an image" />
+-->
+<!--  <img class="profile-pic" src="{% static 'C:/Users/HP/websiteapp/static/images/DSC_5286.JPG' %}" alt="an image" /> -->
+<!doctype html>
+<html>
+    <head>
+        <title>My Portfolio Website</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'C:/Users/HP/websiteapp/static/bootstrap/dist/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\HP\websiteapp\static\bootstrap\dist\css\bootstrap-grid.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\HP\websiteapp\static\bootstrap\dist\css\bootstrap-grid.rtl.min.css'  %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\HP\websiteapp\static\bootstrap\dist\css\bootstrap-reboot.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\HP\websiteapp\static\bootstrap\dist\css\bootstrap-utilities.min.css' %}"/>
+        <style type="text/css">
+            body{
+                background-color:aquamarine!important;
+            }
+            #profile-wrapper{
+                text-align:center;
+            }
+            #profile-pic{
+                width:150px;
+                height:150px;
+                border-radius:50%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            ul{
+                list-style-type:none;
+
+
+            }
+            
+            .social-links ul,li{
+               list-style-type:none;
+                display:inline-block;
+
+            }
+            .social{
+                width:50px;
+                height:50px;
+                margin-left:70px;
+            }
+            #first,#second,#third,#fourth,#fifth,#sixth{
+                margin-top:10px;
+                margin-bottom:10px;
+            }
+            footer i{
+                letter-spacing: 5px;
+            }
+           .me{
+               list-style-type:disc;
+           }
+        </style>
+
+
+    </head>
+    <body>
+      <div class="container">
+          <div class="row">
+            <div class="col-md-3" id="first">
+                <div class="card card-body h-100 border-info " >
+                    <img id="profile-pic" src="{% static 'C:/Users/HP/websiteapp/static/images/DSC_5278.JPG' %}" alt="image"/>
+                    <h4>I am Olumide ADEOLA</h4>
+                    <hr $hearts; />
+                    <p> Author of the Chasfat_Projects</p>
+
+                </div>
+
+            </div>
+            <div class="col-md-9" id="second">
+                <div class="card card-body h-100 border-info ">
+                    <h4>My Story as a developer</h4>
+                    <p> I started out my passion in coding during my second year in College.
+                        I took regular python courses as part of the curriculum required for my course of study.
+                        
+                        
+                    </p>
+                    <p>I was then introduced to python, and those times formed the preliminary stages of me finding out more about programming
+                        and what it represented in our world. So I have inculcated more programming skills and languages in my own little way ever since then.</p>
+                    <p>Some months after I had written my first Hello world program, I had fastracked my learning
+                        pace in so many ways through vital techniques. I majored in python basics and then 
+                        moved to other frameworks and libraries in the python programming language such as Django, Kivy and others
+                    </p>
+                    <ul class="social-links">
+                        <li><img class="social" src="{% static 'C:/Users/HP/websiteapp/static/images/facebook-removebg-preview.png' %}" alt="image" /></li>
+                        <li><img class="social" src="{% static 'C:\Users\HP\websiteapp\static\images\instagram-removebg-preview.png' %}" alt="image" /></li>
+                        <li><img class="social" src="{% static 'C:\Users\HP\websiteapp\static\images\twitter-removebg-preview.png' %}" alt="image" /></li>
+            
+                    </ul>
+                </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 " id="third">
+                <div class="card card-body">
+                    <h4>My Experience as a Developer</h4>
+                    <hr/>
+                    
+                    <p> I am versed in web development languages such as HTML,CSS,Javascript,Bootstrap,PHP,React,Mysql database
+                         </p>
+                    <p> I am a Data science enthusiast having worked on several data science projects and am skilled in languages
+                        such as R,Pandas,Matplotlib,Seaborn,Scikit Learn and more  </p>
+                        <p>I am have knowledge about other softwares such as Word,Excel,Tablaeu,Latex</p>
+
+                </div>
+
+            </div>
+            <div class="col-md-6" id="fourth">
+                <div class="card card-body h-100">
+                    <h4>My Projects </h4>
+                    <hr/>
+                   
+                    <ul class="me">
+                        <li> Dictionary App developed with Django and deployed to heroku</li>
+                        <li> To do list App developed with Django</li>
+                        <li>School Eportal System developed with PHP,HTML,CSS and Bootstrap framework</li>
+                        <li>Coming soon website developed with HTML,CSS and Javascript</li>
+                        <li>Github login page</li>
+                        <li>Pepsi landing page</li>
+                        <li>Eportal home page of a university developed with HTML,CSS and Javascript and lots more...</li>
+                       
+                    </ul>
+
+                    
+                </div>
+
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 " id="fifth">
+                  <div class="card card-body h-100">
+                    <h4>How I learn  </h4>
+                    <hr/>
+                    <p>I learn with the use of interactive videos, documentations and good pdfs</p>
+                    <p>I drive passion participating in bootcapms,interactive discussion classes</p>
+                    <p> I also learn greatly by teaching others what I know</p>
+                    
+                  </div>
+                  
+                   
+              </div>
+              <div class="col-md-6 " id="sixth">
+                <div class="card card-body h-100">
+                  <h4>My short term goals</h4>
+                  <hr/>
+                  <p>I intend to work with well established innovative Tech companies home and abroad</p>
+                  <p>I intend to fan aflame programming passions in young minds  </p>
+                  <p>I plan to establish the frontiers of God's kingdom through programming</p>
+                </div>
+                
+                 
+            </div>
+          </div>
+      </div>
+<footer>
+    <center>
+   <i>Developed by &hearts; Chasfat_Project$ 2022 </i>
+   </center>
+</footer>
+    </body>
+</html>

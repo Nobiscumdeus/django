@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+
+        <title> Student Application </title>
+        
+        {% load static %}
+       
+      <link rel="stylesheet" type="text/css" href="{% static 'C:/Users/HP/websiteapp/static/bootstrap/dist/css/bootstrap.min.css' %}" /> 
+
+    </head>
+    <body>
+
+        <form method="POST" class="post-form" role='form'>
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-danger"> Apply </button>
+            
+        </form>
+    </body>
+    </html>

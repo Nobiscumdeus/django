@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+    <head>
+        <title> {% block title %} {% endblock %}</title>
+        <style type="text/css">
+           
+            body{
+                background-color:green;
+            }
+        </style>
+    </head>
+    <body>
+        <img width=200 height=200 src="{% static 'C:/Users/HP/websiteapp/static/images/DSC_5280.JPG' %}" alt="image" />
+        {% block content %} {% endblock %}
+    </body>
+</html>

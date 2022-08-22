@@ -135,20 +135,19 @@ urlpatterns=[
 from django.contrib import admin
 from django.urls import include, path
 
-urlpatterns = [
-    path('polls/', include('polls.urls')),
-    path('admin/', admin.site.urls),
-    
-]
+
 # working with the accounts database
 urlpatterns=[
     #for the general admin page
     path('admin/',admin.site.urls),
-    #for accounts alone
-     path('accounts/',include('accounts.urls')),
-     #for dictionary app so that both can at least work at the same time when called 
+    #for dictionary app so that both can at least work at the same time when called 
     path('dictionary/',include('dictionary.urls')),
-    
+    path('polls/', include('polls.urls')),
+    path('vote/',include('vote.urls')), 
+    path('music/',include('music.urls')),
+    path('todo/',include('Todo.urls')),
+    path('api/',include('api.urls')),
+    path('tutorial/',include('tutorial.urls')),
 ]
 
 

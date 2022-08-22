@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Form Validation 
+        </title>
+    </head>
+    <body>
+        <form method="POST" class="post-form" enctype="multipare/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default"> Save </button>
+        </form>
+    </body>
+    </html>

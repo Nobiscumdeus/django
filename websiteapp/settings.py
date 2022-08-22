@@ -26,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 #The * here is to alllow all hosts
-#ALLOWED_HOSTS = ['127.0.0.1','nobiscumdeus2022.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1','nobiscumdeus2022.herokuapp.com']
+#ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'music.apps.MusicConfig',
     'love.apps.LoveConfig',
-    'TechnicalCourses.apps.TechnicalcoursesConfig',
     'vote.apps.VoteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,6 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'Todo.apps.TodoConfig',
+    'tutorial.apps.TutorialConfig',
+    
+    'rest_framework',
+    #'base.apps.BaseConfig',
+    'base',
     
     
 ]
@@ -148,7 +152,15 @@ USE_TZ = True
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT=os.path.join(BASE_DIR,'root')
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'bootstrap'),
+]
+MEDIA_URL='/images/'
+
 #LOGIN_REDIRECT_URL="home" #return to this when you are done
 #LOGOUT_REDIRECT_URL="login" # return to this when done with the code below 
 LOGIN_REDIRECT_URL='accounts/dashboard'

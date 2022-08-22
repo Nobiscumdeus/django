@@ -1,0 +1,66 @@
+{% load static %}
+<html>
+    <head>
+<title> Student Results </title>
+<link rel="stylesheet" type="text/css" href="{% static 'C:/Users/HP/websiteapp/static/bootstrap/dist/css/bootstrap.min.css' %}"/>
+<style type="text/css">
+    body{
+        background-color:black;
+        color:yellow;
+    }
+    h1{
+        letter-spacing:5px;
+        text-align:center;
+    }
+    a{
+        text-decoration:none;
+    }
+    thead th{
+        color:yellow;
+    }
+    tbody td{
+        color:yellow;
+    }
+</style>
+    </head>
+    <body>
+{% block content %} 
+<h1> Student Results </h1>
+
+<table class="table table-hover">
+    <thead>
+        
+        <tr>
+           
+            <th>Full Names </th>
+            <th> Class </th>
+            <th> Subjects </th>
+            <th> Term </th>
+            <th> Score </th>
+            <th> Grade </th>
+           <th> Delete </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in results %}
+        <tr>
+           
+            <td> {{ i.name }} </td>
+            <td> {{ i.student_class }} </td>
+            <td> {{ i.subject }} </td>
+            <td> {{ i.term }} </td>
+            <td> {{ i.score }} </td>
+            <td> {{ i.grade }} </td>
+            <td> <a href="{% url 'tutorial:delete' i.id %}" class="btn btn-danger"> Delete </a> </td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+
+</table>
+
+
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- <h1> {{question.question_text}}</h1>
+<ul>
+    {% for text in question.choice_set.all %}
+
+    <li> {{ text.choice_text }}</li>
+
+
+    {% endfor %}
+-->
+    <form action="{% url 'tutorial:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend> <h3> {{ question.question_text }} </h3> </legend>
+            <!-- To display an error message -->
+            {% if error_message %}
+            <p> <strong> {{ error_message }} </strong></p>
+            {% endif %}
+            <!-- The choice_set gets the Choices associated to the Question-->
+            {% for choice in question.choice_set.all %}
+            <label for ="choice{{forloop.counter}}"> {{ choice.choice_text }} </label>
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value=" {{choice.id}}" >
+            {% endfor %}
+            <input type="submit" value="Vote" />
+        </fieldset>
+
+    </form>
+</ul>

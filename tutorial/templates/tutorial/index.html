@@ -1,0 +1,12 @@
+{% if latest_question_text %}
+<ul>
+    {% for text in latest_question_text %}
+   
+   <!--- <li> <a href="tutorial text.id"> {{ text.question_text }} </a></li> ------>
+    <li> <a href="{% url 'detail' text.id %}"> </a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p> No questions are available </p>
+
+{% endif %}
