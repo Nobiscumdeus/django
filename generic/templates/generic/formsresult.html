@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        </title>
+        <style type="text/css">
+            body{
+                background-color:#111;
+                color:yellow;
+            }
+            button{
+                background:yellow;
+                font-size:20px;
+                color:tomato;
+                font-weight:700;
+            
+            }
+            button:hover{
+                color:red;
+            }
+            button a {
+                text-decoration:none;
+            }
+        </style>
+    </head>
+    <body>
+        {% for k in list %} <br/>
+        
+        {{ k.name }} </br>
+        {% endfor %}
+      
+      
+        <button>
+            <a href="{% url 'generic:home' %}"> Return to registration page  </a>
+         </button>
+    </body>
+
+    </html>

@@ -119,3 +119,13 @@ def emp(request):
             form=EmployeesForm()
         return render(request,'index.html',{'form':form})
     
+#Using generic views
+from django.views import generic
+class IndexView(generic.ListView):
+    template_name='vote/Index.html'
+    context_object_name='latest_question_list'
+    
+    def get_queryset(self):
+        return Question.objects.order_by('date_published')
+    
+    

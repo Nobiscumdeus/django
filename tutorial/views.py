@@ -2,14 +2,17 @@ from django.shortcuts import render,get_object_or_404
 #To use loader to get the template
 from django.template import loader
 from django.urls import reverse
-
+#from django.views import generic
 
 # Create your views here.
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from .models import Article
 from .models import Result, Question
+
 def Index(request):
     return HttpResponse("<h1> Now we shall follow Django's documentation to the top </h1>")
+    
+
 
 def year_archive(request,year):
     #we add year as an argument after the request

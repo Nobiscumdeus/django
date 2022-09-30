@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 #The * here is to alllow all hosts
 ALLOWED_HOSTS = ['127.0.0.1','nobiscumdeus2022.herokuapp.com']
 #ALLOWED_HOSTS = ['*']
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'Todo.apps.TodoConfig',
     'tutorial.apps.TutorialConfig',
-    
+    'generic.apps.GenericConfig',
     'rest_framework',
     #'base.apps.BaseConfig',
     'base',
