@@ -149,6 +149,7 @@ urlpatterns=[
     path('api/',include('api.urls')),
     path('tutorial/',include('tutorial.urls')),
     path('generic/',include('generic.urls')),
+ 
 ]
 
 
