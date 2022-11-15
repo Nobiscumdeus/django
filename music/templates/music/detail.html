@@ -1,5 +1,17 @@
+{% extends 'music/base.html' %}
+{% block title %} Chasfat Project$ | Song Details {% endblock %}
 {% load static %}
+
+{% block body %}
+
+
+{% comment %}
 <img src="{% static 'images/instagram-removebg-preview.png'%}" alt="an image here" />
+{% endcomment %}
+<div class="row">
+ 
+
+
 
 <img src="{{ album.album_logo }}" />
 
@@ -13,6 +25,7 @@
         
     {% endfor %}
 </ul>
+{% comment %}
 
 {% if error_message %}
 <p> <strong> {{ error_message }}</strong></p>
@@ -33,3 +46,8 @@
     <input type="submit" value="Favorite " />
 
 </form>
+
+{% endcomment %}
+
+
+{% endblock %}

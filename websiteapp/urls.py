@@ -108,7 +108,6 @@ from music import views
 '''
 urlpatterns=[
     path('admin/',admin.site.urls),
-    path('Index',views.index),
     path('',include('music.urls')),
      
    # path('detail',views.index),
@@ -149,6 +148,9 @@ urlpatterns=[
     path('api/',include('api.urls')),
     path('tutorial/',include('tutorial.urls')),
     path('generic/',include('generic.urls')),
+    path('apiapp',include('apiapp.urls')),
+    path('companies',include('companies.urls')),
+    #path('api-auth/',include('rest-framework.urls')),
  
 ]
 

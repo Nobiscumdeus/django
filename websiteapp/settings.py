@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'rest_framework',
     #'base.apps.BaseConfig',
     'base',
+    'apiapp',
+    'companies',
   
     
     
@@ -171,3 +173,14 @@ django_heroku.settings(locals())
 
 #We may later add this to the procfile app
 #web: gunicorn websiteapp.wsgi:application--log-file-
+#Added manually 
+DEFAULT_AUTO_FIELD='django.db.models.BigAutoField'
+
+#Added for the api with django rest framework
+#Mainly written for the configuration of the rest framework
+
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}

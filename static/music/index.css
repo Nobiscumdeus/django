@@ -1,19 +1,15 @@
 body{
- 
- 
-    font-size:20px;
-}
-#me{
-    display: block;
-    
-}
-#me li{
-    display:inline-block;
+    background:white url("images/DSC_5286.JPG");
 }
 .navbar{
     border-radius:0;
 }
 .navbar-brand{
-    font-family:"Satisfy",cursive;
-
+    font-family:'Satisfy',cursive;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration:none;
 }
