@@ -149,7 +149,6 @@ urlpatterns=[
     path('tutorial/',include('tutorial.urls')),
     path('generic/',include('generic.urls')),
     path('apiapp',include('apiapp.urls')),
-    path('companies',include('companies.urls')),
     #path('api-auth/',include('rest-framework.urls')),
  
 ]

@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     #'base.apps.BaseConfig',
     'base',
     'apiapp',
-    'companies',
   
     
     
