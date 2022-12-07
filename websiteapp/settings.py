@@ -27,9 +27,9 @@ SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#The * here is to alllow all hosts
-ALLOWED_HOSTS = ['127.0.0.1','nobiscumdeus2022.herokuapp.com']
-#ALLOWED_HOSTS = ['*']
+#The * here is to allow all hosts
+#ALLOWED_HOSTS = ['127.0.0.1','nobiscumdeus2022.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -168,7 +168,7 @@ MEDIA_URL='/images/'
 LOGIN_REDIRECT_URL='accounts/dashboard'
 
 #We are just adding this configuration below for heroku
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 
 #We may later add this to the procfile app
 #web: gunicorn websiteapp.wsgi:application--log-file-
