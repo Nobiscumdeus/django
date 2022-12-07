@@ -1,3 +1,1 @@
-web: gunicorn websiteapp.wsgi
-
-- 
+web: python manage.py migrate && gunicorn vote.wsgi
