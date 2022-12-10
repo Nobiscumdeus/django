@@ -12,18 +12,21 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 #import django_heroku
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 #We just allowed importing of heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(os.path.join(BASE_DIR,".env"))
+SECRET_KEY=os.getenv("SECRET_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
+#SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
 #To add the secret key of railway.app down here 
 
 
