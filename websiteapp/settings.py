@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-import django_heroku
+#import django_heroku
 from pathlib import Path
 import os
 #We just allowed importing of heroku
@@ -24,6 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
+#To add the secret key of railway.app down here 
+
+
+#..................
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -91,17 +97,19 @@ WSGI_APPLICATION = 'websiteapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
+
 
 ''' THIS IS THE DEFAULT DATABASE THAT CAME WITH DJANGO SO YOU CAN RETURN TO IT WHEN DONE WITH MYSQL
 #Database I added to connect to mysql, it can be later removed --meanwhile it won't work since i don't 
-# have mysql installed on this system 
+# have mysql installed on this system '''
 DATABASES={
    'default':{
        'ENGINE':'django.db.backends.mysql',
@@ -112,8 +120,6 @@ DATABASES={
        'PORT':'3306'
    }
 }
-'''
-
 
 
 # Password validation
@@ -155,7 +161,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-STATIC_ROOT=os.path.join(BASE_DIR,'root')
+#STATIC_ROOT=os.path.join(BASE_DIR,'root')
+
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
