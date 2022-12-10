@@ -26,7 +26,7 @@ SECRET_KEY=os.getenv("SECRET_KEY")
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
+SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
 #To add the secret key of railway.app down here 
 
 
@@ -193,4 +193,12 @@ REST_FRAMEWORK={
     'DEFAULT_AUTHENTICATION_CLASSES':[
         'rest_framework.authentication.TokenAuthentication'
     ]
+}
+
+import dj_database_url
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
