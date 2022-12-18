@@ -19,9 +19,9 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-SECRET_KEY=os.getenv("SECRET_KEY")
 load_dotenv(os.path.join(BASE_DIR,".env"))
+SECRET_KEY=os.getenv("SECRET_KEY")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
