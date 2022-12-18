@@ -93,42 +93,9 @@ urlpatterns=[
 """
 
 
-#Working Newly on the Music Database
 
-from django.conf.urls import include,url
-from django.contrib import admin
-from django.urls import path
-from music import views
 
-''' urlpatterns=[
-    url(r'^admin/',admin.site.urls),
-    url(r'^music/',include('music.urls')),
 
-]
-'''
-urlpatterns=[
-    path('admin/',admin.site.urls),
-    path('',include('music.urls')),
-     
-   # path('detail',views.index),
-]
-urlpatterns=[
-    url(r'^admin/',admin.site.urls),
-    url(r'^music/',include('music.urls')),
-    
-    
-]
-
-#working with the todo view app
-from Todo import views 
-urlpatterns=[
-    path('todo/',include('Todo.urls')),
-    path('admin/',admin.site.urls),
-]
-urlpatterns=[
-    url(r'^todo/',include('Todo.urls')),
-    url(r'^admin/',admin.site.urls),
-]
 
 #Working with the polls database
 from django.contrib import admin

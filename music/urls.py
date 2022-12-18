@@ -27,8 +27,9 @@ urlpatterns=[
     path('',views.detail, name='detail'),
 ]
 '''
+'''
 #Now we are using the generic view, hence this must change 
-from django.conf.urls import url
+from django.urls import url
 from . import views
 
 app_name='music'
@@ -49,4 +50,10 @@ urlpatterns=[
     url(r'^register/$',views.UserFormView.as_view(),name='register'),
  
   
+]
+'''
+from django.urls import path
+from . import views 
+urlpatterns=[
+    path('',views.IndexView.as_view(),name='index'),
 ]
