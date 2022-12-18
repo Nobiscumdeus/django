@@ -19,31 +19,28 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(os.path.join(BASE_DIR,".env"))
+
 SECRET_KEY=os.getenv("SECRET_KEY")
+load_dotenv(os.path.join(BASE_DIR,".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'aan3opke99(i!dsrdrzlu!je!wqf&4yos9%@f%#^f7=&qpu&*a'
-#To add the secret key of railway.app down here 
 
-
-#..................
 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #The * here is to allow all hosts
-#ALLOWED_HOSTS = ['127.0.0.1','nobiscumdeus2022.herokuapp.com']
+
 ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'dictionary.apps.DictionaryConfig',
+    
     'accounts.apps.AccountsConfig',
     'music.apps.MusicConfig',
     'love.apps.LoveConfig',
@@ -100,6 +97,7 @@ WSGI_APPLICATION = 'websiteapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 '''
 DATABASES = {
     'default': {
@@ -110,9 +108,10 @@ DATABASES = {
 '''
 
 
+
 ''' THIS IS THE DEFAULT DATABASE THAT CAME WITH DJANGO SO YOU CAN RETURN TO IT WHEN DONE WITH MYSQL
-#Database I added to connect to mysql, it can be later removed --meanwhile it won't work since i don't 
-# have mysql installed on this system '''
+Database I added to connect to mysql, it can be later removed --meanwhile it won't work since i don't 
+have mysql installed on this system 
 DATABASES={
    'default':{
        'ENGINE':'django.db.backends.mysql',
@@ -123,7 +122,7 @@ DATABASES={
        'PORT':'3306'
    }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -160,18 +159,20 @@ USE_TZ = True
 
 #Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 #STATIC_ROOT=os.path.join(BASE_DIR,'root')
 
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+#STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
-STATICFILES_DIRS=[
+'''STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
     os.path.join(BASE_DIR,'bootstrap'),
 ]
+'''
+
 MEDIA_URL='/images/'
 
 #LOGIN_REDIRECT_URL="home" #return to this when you are done
@@ -194,6 +195,7 @@ REST_FRAMEWORK={
         'rest_framework.authentication.TokenAuthentication'
     ]
 }
+
 
 import dj_database_url
 

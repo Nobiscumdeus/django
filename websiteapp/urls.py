@@ -140,7 +140,6 @@ urlpatterns=[
     #for the general admin page
     path('admin/',admin.site.urls),
     #for dictionary app so that both can at least work at the same time when called 
-    path('dictionary/',include('dictionary.urls')),
     path('polls/', include('polls.urls')),
     path('vote/',include('vote.urls')), 
     path('music/',include('music.urls')),
