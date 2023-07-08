@@ -32,10 +32,13 @@ SECRET_KEY=os.getenv("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+#DEBUG = False
+DEBUG=False
 #The * here is to allow all hosts
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS=['localhost']
+
 
 # Application definition
 
@@ -98,14 +101,15 @@ WSGI_APPLICATION = 'websiteapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
+
+
 
 
 
@@ -197,10 +201,10 @@ REST_FRAMEWORK={
 }
 
 
-import dj_database_url
+#import dj_database_url
 
-DATABASE_URL = os.getenv("DATABASE_URL")
-
+#DATABASE_URL = os.getenv("DATABASE_URL")
+"""
 DATABASES = {
     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
-}
+} """
