@@ -199,7 +199,7 @@ REST_FRAMEWORK={
         'rest_framework.authentication.TokenAuthentication'
     ]
 }
-
+XML_PARSER='lxml'
 
 #import dj_database_url
 

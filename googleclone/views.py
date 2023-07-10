@@ -16,6 +16,7 @@ def mail_sending(request):
               fail_silently=False)
     return render(request,'homeemail.html')"""
 
+
 def search_view(request):
     if(request.method=='POST'):
         form=SearchForm(request.POST)
@@ -30,34 +31,47 @@ def search_view(request):
                 url=result.find('a')['href']
                 description=result.find('p').text
                 search_results.append({'title':title,'url':url,'description':description})
-            return render(request,'googleclone/search.html',{'result':result})
+            return render(request,'googleclone/search.html',{'result':search_results})
     else:
         form=SearchForm()
         return render(request,'googleclone/search.html',{'form':form})
                 
 def index(request):   
     return HttpResponse('You are welcome ')    
+
+def open_search(request):
+    return render(request,'googleclone/clone.html')
+
+
 def search(request):   
     if request.method=="POST":
-        search=request.POST['search']
-        url='https://www.ask.com/web?q='+search
-        response=requests.get(url)
-        soup=BeautifulSoup(response.text,'lxml')
-        result_list=soup.find_all('div',{'class':'PartialSearchResults-item'})
-        final_result=[]
-        for result in result_list:
-            result_title=result.find(class_='PartialSearchResults-item-title').text
-            result_url=result.find('a').get('href')
+        timeout=5
+        try:
+            search=request.POST['search']
+            url='https://www.ask.com/web?q='+search
+            response=requests.get(url, timeout=timeout)
+            soup=BeautifulSoup(response.text,'lxml')
+            result_list=soup.find_all('div',{'class':'PartialSearchResults-item'})
+            final_result=[]
+            for result in result_list:
+                result_title=result.find(class_='PartialSearchResults-item-title').text
+                result_url=result.find('a').get('href')
+                #result_url=result.find('a')['href']
+                result_description=result.find(class_='PartialSearchResults-item-abstract').text
+                final_result.append((result_title,result_url,result_description))
             
-            result_description=result.find(class_='PartialSearchResults-item-abstract').text
-            final_result.append((result_title,result_url,result_description))
-            
-        context={
-            'final_result':final_result
-        }
-        return render(request,'googleclone/clone.html',context)
+            context={
+                'final_result':final_result
+            }
+        
+        
+            return render(request,'googleclone/clone.html',context)
+        except requests.Timeout:
+            # Handle the timeout error
+            print("The request timed out.")
+        
     else:
-        return(request,'googleclone/clone.html')
+        return render(request,'googleclone/clone.html')
     
 #For sending mails 
         

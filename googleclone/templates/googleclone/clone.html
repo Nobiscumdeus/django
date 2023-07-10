@@ -8,26 +8,127 @@
                 padding:0;
                 box-sizing:border-box;
             }
+            body{
+                min-height:100vh;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                flex-wrap:wrap;
+                align-items:center;
+                place-self:center;
+                background:#333;
+                color:#fff;
+
+            }
+            form,.result_container{
+
+           
+                flex-basis:80%;
+                display:flex;
+              
+                flex-wrap:wrap;
+                margin:20px;
+                border-radius:10px;
+                
+            }
+            form{
+                display:flex;
+                flex-direction:row;
+                width:50%;
+                min-height:20vh;
+                
+            }
+            .result_container{
+                width:80%;
+                flex-direction:column;
+                min-height:70vh;
+            }
+            input[type="text"]{
+                height:10vh;
+                border:none;
+                outline:none;
+                width:50vw;
+                overflow-x:scroll;
+                background:#888;
+                
+                text-align:center;
+                color:#fff;
+
+            }
+            input[type="text"]::placeholder{
+                text-align:center;
+            }
+            input[type="submit"]{
+                min-height:5vh;
+                border-radius:5px;
+                width:10vw;
+                padding:2px;
+                font-size:16px;
+                text-transform:capitalize;
+                outline:none;
+                cursor:pointer;
+                margin-top:5px;
+
+
+            }
+            input[type="submit"]:hover{
+                background:green;
+            }
+            .result{
+                display:flex;
+                flex-direction:column;
+                color:#fff;
+
+            }
+            a:link{
+                color:green;
+            }
+            a:hover{
+                color:green;
+            }
+            a:active{
+                color:blue;
+            }
+            a:visited{
+                color:blue;
+            }
+            #title{
+                color:#fff;
+            }
+          
+            
+        
         </style>
     </head>
     <body>
+        <h3> Chasfat Webscraping with Django| Mini Search Engine </h3>
+        <hr/>
         <form method="POST" action="search">
             {% csrf_token %}
-            <input type="text" name="search" />
+            <input type="text" name="search" placeholder="Enter your search query here..." />
             <input type="submit" value="search" />
         </form>
         <div class="result_container">
+            
+            
         {% if final_result %}
         {% for result in final_result %}
-        <div>
-            <h3> {{ result.title}} <a href="{{result.url}}"> {{ result.0}}</a></h3>
-            <div>
+        
+        
+         
+        <a href="{{result.url}}"> {{ result.0}}</a> <br/><br/>
+            
+           <a href="{{result.0}}"> {{ result.url }}</a>
+           <p>
                 {{ result.description }}
-            </div>
-        </div>
+            </p>
+        
+            
+        
         <br/>
         {% endfor %}
-        {% endfor %}
+        {% endif %}
+       
     </div>
     </body>
     </html>
