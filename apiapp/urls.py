@@ -6,6 +6,7 @@ urlpatterns = [
     path('',views.firstView.as_view(),name='first'),
     path('ondodoctors',views.OndoDoctorsAPIView.as_view(),name='ondo_doctors'),
     path('church',views.ChurchAPIView.as_view(),name='church'),
+    path('csv',views.export_to_csv,name='csv')
     
     
 ]

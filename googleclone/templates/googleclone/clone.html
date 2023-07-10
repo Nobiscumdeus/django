@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en/US">
+    <head>
+        <title> Chasfat | Google Clone </title>
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="POST" action="search">
+            {% csrf_token %}
+            <input type="text" name="search" />
+            <input type="submit" value="search" />
+        </form>
+        <div class="result_container">
+        {% if final_result %}
+        {% for result in final_result %}
+        <div>
+            <h3> {{ result.title}} <a href="{{result.url}}"> {{ result.0}}</a></h3>
+            <div>
+                {{ result.description }}
+            </div>
+        </div>
+        <br/>
+        {% endfor %}
+        {% endfor %}
+    </div>
+    </body>
+    </html>

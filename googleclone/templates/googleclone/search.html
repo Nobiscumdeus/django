@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Chasfat | Google Clone </title>
+    </head>
+    <body>
+        <div>
+            <h1> Search Engine </h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+        <div>
+            <ul>
+                {% for result in results %}
+                <li>
+                    <h3><a href="{{ result.url }}">{{ result.title }}</a></h3>
+                    <p>{{ result.description }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </body>
+    </html>

@@ -3,11 +3,23 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.http import HttpResponse
+import csv
 
 from .serializers import StudentSerializer, ChurchSerializer
 from .models import Student, OndoDoctors,Church
 
-
+def export_to_csv(request):
+    profiles=Church.objects.all()
+    response=HttpResponse('text/csv')
+    response['Content-Disposition']='attachment;filename=profile_export.csv'
+    writer=csv.writer(response)
+    writer.writerow(['id','name','founder'])
+    profile_fields=profiles.values_list('id','name','founder')
+    for profile in profile_fields:
+        writer.writerow(profile)
+    return response
+    
 
 class firstView(APIView):
     def get(self,request,*args,**kwargs):

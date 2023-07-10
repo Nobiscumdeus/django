@@ -208,3 +208,15 @@ REST_FRAMEWORK={
 DATABASES = {
     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 } """
+
+
+
+"""
+#Email Configuration in Django
+EMAIL_BACKEND='django.core.email.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+EMAIL_HOST_USER='emmanueladeola990@gmail.com'
+EMAIL_HOST_pASSWORD=''
+"""
