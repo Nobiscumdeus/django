@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head > 
+    <title> 
+        {% block title%} Nobiscumdeus Tech Foundations {% endblock%}
+    </title>
+   <style type="text/css">
+    body{
+        background-color:black;
+        font-size:30px;
+        color:blue;
+    
+    }
+    a{
+        text-decoration:none;
+    }
+    h1{
+        text-align:center;
+    }
+   </style>
+    
+</head>
+
+    <h1> Pagination of Questions </h1>
+    <hr/>
+
+{% if object_list %}
+<ul>
+    {% for question in object_list %}
+    <li> <a href="{% url 'polls:detail' question.id %}">{{question.question_text}} </a> </li>
+    {% endfor %}
+    
+</ul>
+<br/>
+    <div>
+        Page {{page_obj.number }} of {{ page_obj.paginator.num_pages }} 
+    </div>
+    <ul>
+        {% if page_obj.has_previous %}
+        <li> <a href="?page=1">&laquo; first</li>
+        <li><a href="?page={{page_obj.previous_page_number}}">Previous </a></li>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+        <li><a href="?page={{page_obj.next_page_number }}">next </a> </li>
+        <li><a href="?page={{ page_obj.paginator.num_pages}}">last </a> </li>
+
+        {% endif %}
+    </ul>
+    
+
+
+{% else %}
+    <p> No polls are available </p>
+    {% endif %}
+</body>
+
+    </html>
+

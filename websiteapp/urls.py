@@ -114,8 +114,10 @@ urlpatterns=[
     path('api/',include('api.urls')),
     path('tutorial/',include('tutorial.urls')),
     path('generic/',include('generic.urls')),
-    path('apiapp/',include('apiapp.urls')),path('googleclone/',include('googleclone.urls')),
+    path('apiapp/',include('apiapp.urls')),
+    path('googleclone/',include('googleclone.urls')),
     #path('api-auth/',include('rest-framework.urls')),
+    path('love/',include('love.urls')),
  
 ]
 

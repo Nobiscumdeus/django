@@ -23,4 +23,6 @@ path('add/addrecord/',views.addrecord,name='addrecord'),
 
 path('senior1/',views.senior1,name='senior1'),
 path('check',views.check,name='check'),
+
+path('paginate',views.QuestionListView.as_view(),name='paginate')
 ]

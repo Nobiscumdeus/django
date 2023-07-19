@@ -1,0 +1,5 @@
+<form method="post" action="{% url 'tutorial:uploadreporter' %}">
+    {% csrf_token %}
+{{ form }}
+<button type="submit"> Submit Form </button>
+</form>

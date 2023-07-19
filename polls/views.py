@@ -1,11 +1,22 @@
 from django.shortcuts import render,get_object_or_404
 from django.views import generic
+from django.views.generic import ListView
 
 # Create your views here.
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from .models import Question,Choice,Adeolas
 from django.urls import reverse
+
+
+#Working on Pagination 
+class QuestionListView(ListView):
+    #latest_question=Question.objects.order_by('-pub_date')
+    template_name="polls/pagination.html"
+    paginate_by=3
+    queryset=Question.objects.all()
+  
+
 
 def love(request):
     latest_question_list=Question.objects.order_by('-pub_date')
@@ -34,7 +45,8 @@ def vote(request,question_id):
     question=get_object_or_404(Question,pk=question_id)
     try:
         selected_choice=question.choice_set.get(pk=request.POST['choice'])
-    except(KeyError,Choice.DoesNotExist()):
+    #except(KeyError,Choice.DoesNotExist()):
+    except (KeyError):
         #Redisplay the question voting form 
         return render(request,'polls/detail.html',{
             'question':question,

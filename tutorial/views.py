@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 #To use loader to get the template
 from django.template import loader
 from django.urls import reverse
@@ -8,6 +8,8 @@ from django.urls import reverse
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from .models import Article
 from .models import Result, Question
+
+from .forms import ReporterForm
 
 def Index(request):
     return HttpResponse("<h1> Now we shall follow Django's documentation to the top </h1>")
@@ -102,3 +104,14 @@ def vote(request,question_id):
 def vote_results(request,question_id):
     question=Question.objects.get(pk=question_id)
     return render(request,'tutorial/vote_results.html',{'question':question})
+
+
+#Reporter form
+def uploadReporter(request):
+    if request.POST:
+        form=ReporterForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('tutorial:uploadreporter')
+    return render(request,'tutorial/uploads.html',{'form':ReporterForm})
