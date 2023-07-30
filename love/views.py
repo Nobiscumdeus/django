@@ -12,8 +12,10 @@ from .models import Article
 
 
 
+
 # Create# your views here.
 from django.http import HttpResponse
+
 def first(request):
     return HttpResponse("This is first function powered by Nobiscumdeus ")
 def welcome(request):

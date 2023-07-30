@@ -1,0 +1,18 @@
+{% extends "accounts/base.html" %}
+
+{% block content  %}
+
+
+Create your account today
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button> Submit </button>
+
+</form>
+
+&copy; Chasfat Projects 
+
+
+{% endblock content %}

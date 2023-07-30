@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        {% if title %}
+        <title> Blog Application - {{ title }} </title>
+        {% else %}
+        <title> Blog Application </title>
+        {% endif %}
+
+    </head>
+    <body>
+        <header>
+          
+            <a href="{% url 'Blogapp:indexpage' %}">Home </a> | 
+            <a href="{% url 'accounts:signup_page' %}"> Sign up </a>
+        </header>
+      {% block content %}
+
+      {% endblock content %}
+      <footer>
+        &copy; Chasfat Projects <b id="year"> <b/> 
+      </footer>
+      <script type="text/javascript"> date=new Date().getFullYear() 
+       document.getElementById('year').innerHTML=date;
+      </script>
+       
+    </body>
+</html>

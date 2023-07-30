@@ -61,7 +61,10 @@ INSTALLED_APPS = [
     'rest_framework',
     #'base.apps.BaseConfig',
     'base',
-    'apiapp','googleclone'
+    'apiapp',
+    'googleclone',
+    'Blogapp',
+    'Blogappusers'
   
     
     
@@ -83,6 +86,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'templates')],
+        #or 'DIRS':[BSE_DIR /'templates'], This will look for templates folder in the base dir ie websiteapp/templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

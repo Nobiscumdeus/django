@@ -118,6 +118,16 @@ urlpatterns=[
     path('googleclone/',include('googleclone.urls')),
     #path('api-auth/',include('rest-framework.urls')),
     path('love/',include('love.urls')),
+    path('Blogapp/',include('Blogapp.urls')),
+    path('accounts/',include('Blogappusers.urls',namespace='accounts')),
+    
+    
+    
+    
+    
+    
+    
+    
  
 ]
 
