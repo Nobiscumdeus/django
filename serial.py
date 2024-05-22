@@ -15,16 +15,16 @@ while True:
         #create a dictionary to hold the data 
         data={
             "timestamp":datetime.now().isoformat(),
-            "sensor_id":"sensor_01",
-            "sensor_type":"temperature",
-            "value":value,
-            "unit":"Celsius",
-            "location":"Building A,Room 101",
-            "status":"OK",
-            "battery_level":95,
-            "calibration_date":"2024-05-01T00:00:00Z",
-            "environment_context":{"humidity":45,"pressure":1012},
-            "data_quality":"Good"
+            "sensor_id":"sensor_01", #static
+            "sensor_type":"temperature", #static
+            "value":value, #dynamic
+            "unit":"Celsius", #static
+            "location":"Building A,Room 101", #static
+            "status":"OK", #static or dynamic based on additional logic
+            "battery_level":95, #static or dynamic if monitored
+            "calibration_date":"2024-05-01T00:00:00Z", #Static
+            "environment_context":{"humidity":45,"pressure":1012}, #Static or dynamic if multiple sensors
+            "data_quality":"Good" #Static or dynamic based on additional logic
         }
         
         #Send the data to the Django server
