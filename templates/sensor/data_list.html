@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Display </title>
+</head>
+<body>
+    <h1> Sensor Data Monitoring </h1>
+    <table border="1">
+        <tr>
+            <th> Timestamp </th>
+            <th> Sensor ID </th>
+            <th> Sensor Type </th>
+            <th> Value </th> 
+            <th> Unit </th>
+            <th> Location </th>
+            <th> Status </th>
+            <th> Battery </th>
+            <th>Calibration Date </th> 
+            <th>Environment Context </th> 
+            <th> Data Quality </th>
+        </tr>
+        {% for data in sensor_data %}
+
+            <td>{{data.timestamp}}</td>
+            <td>{{data.sensor_id}}</td>
+            <td>{{data.sensor_type}}</td>
+            <td>{{data.value}}</td>
+            <td>{{data.unit}}</td>
+            <td>{{data.location}}</td>
+            <td>{{data.status}}</td>
+            <td>{{data.battery_level}}</td>
+            <td>{{data.calibration_date}}</td>
+            <td>{{data.environment_context}}</td>
+            <td>{{data.data_quality} </td>
+        {% endfor %}
+    </table>
+</body>
+</html>
