@@ -18,6 +18,8 @@ def submit_data(request):
             serializer.save()
             return Response(serializer.data,status=status.HTTP_201_CREATED)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    return Response({"status":"error","message":"Only POST method is allowed"},status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
     
 def sensor_data_list(request):
     sensor_data=SensorData.objects.all()
