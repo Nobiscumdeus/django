@@ -1,41 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensor Data Display </title>
-</head>
-<body>
-    <h1> Sensor Data Monitoring </h1>
-    <table border="1">
-        <tr>
-            <th> Timestamp </th>
-            <th> Sensor ID </th>
-            <th> Sensor Type </th>
-            <th> Value </th> 
-            <th> Unit </th>
-            <th> Location </th>
-            <th> Status </th>
-            <th> Battery </th>
-            <th>Calibration Date </th> 
-            <th>Environment Context </th> 
-            <th> Data Quality </th>
-        </tr>
-        {% for data in sensor_data %}
+{% extends 'sensor/base.html' %}
 
-            <td>{{data.timestamp}}</td>
-            <td>{{data.sensor_id}}</td>
-            <td>{{data.sensor_type}}</td>
-            <td>{{data.value}}</td>
-            <td>{{data.unit}}</td>
-            <td>{{data.location}}</td>
-            <td>{{data.status}}</td>
-            <td>{{data.battery_level}}</td>
-            <td>{{data.calibration_date}}</td>
-            <td>{{data.environment_context}}</td>
-            <td>{{data.data_quality} </td>
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+
+    {% comment %}
+
+    
+    <h1 class="font-bold text-3xl"> Sensor Data Monitoring </h1>
+    <table class="table-auto border-collapse border border-gray-500">
+        <tr class="bg-gray-200">
+            <th class="px-4 py-2"> Timestamp </th>
+            <th class="px-4 py-2"> Sensor ID </th>
+            <th class="px-4 py-2"> Sensor Type </th>
+            <th class="px-4 py-2"> Value </th> 
+            <th class="px-4 py-2"> Unit </th>
+            <th class="px-4 py-2"> Location </th>
+            <th class="px-4 py-2"> Status </th>
+            <th class="px-4 py-2"> Battery </th>
+            <th class="px-4 py-2">Calibration Date </th> 
+            <th class="px-4 py-2">Environment Context </th> 
+            <th class="px-4 py-2"> Data Quality </th>
+        </tr>
+        
+        {% for data in sensor_data %}
+        <tr class="hover:bg-gray-100">
+
+            <td class="border px-4 py-2">{{data.timestamp}}</td>
+            <td class="border px-4 py-2">{{data.sensor_id}}</td>
+            <td class="border px-4 py-2">{{data.sensor_type}}</td>
+            <td class="border px-4 py-2">{{data.value}}</td>
+            <td class="border px-4 py-2">{{data.unit}}</td>
+            <td class="border px-4 py-2">{{data.location}}</td>
+            <td class="border px-4 py-2">{{data.status}}</td>
+            <td class="border px-4 py-2">{{data.battery_level}}</td>
+            <td class="border px-4 py-2">{{data.calibration_date}}</td>
+            <td class="border px-4 py-2">{{data.environment_context}}</td>
+            <td class="border px-4 py-2">{{data.data_quality}} </td>
+        </tr>
         {% endfor %}
+    
     </table>
-</body>
-</html>
+
+    {% endcomment %}
+    <!-- Jquery Display -->
+    <h1 class="font-bold text-3xl text-center mb-2"> Sensor Data Monitoring </h1>
+    <table id="sensor-table" class=" table-auto border-collapse border border-gray-500">
+        <thead>
+            <tr class="uppercase">
+               
+                <!-- Add other headers -->
+                <th class="border px-4 py-2"> Timestamp </th>
+                <th class="border px-4 py-2"> Sensor ID </th>
+                <th class="border px-4 py-2"> Sensor Type </th>
+                <th class="border px-4 py-2"> Value </th> 
+                <th class="border px-4 py-2"> Unit </th>
+                <th class="border px-4 py-2"> Location </th>
+                <th class="border px-4 py-2"> Status </th>
+                <th class="border px-4 py-2"> Battery </th>
+                <th class="border px-4 py-2">Calibration Date </th> 
+                <th class="border px-4 py-2">Environment Context </th> 
+                <th class="border px-4 py-2"> Data Quality </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    {% endblock %}
+
+    {% block javascript %}
+    <script>
+        //Fetching Sensor Data Asynchronously 
+        
+            $(document).ready(function() {
+
+                function formatDate(timestamp) {
+                    var date = new Date(timestamp);
+                    var options = {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        second: 'numeric',
+                        hour12: true
+                    };
+                    return date.toLocaleString('en-US', options);
+                }
+
+                
+                function fetchData() {
+                    $.ajax({
+                        url: '{% url "sensor:sensor_data_json" %}',
+                        dataType: 'json',
+                        success: function(data) {
+                            updateTable(data);
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching data:', error);
+                        }
+                    });
+                }
+            
+                function updateTable(data) {
+                    var tbody = $('#sensor-table tbody');
+                    tbody.empty();
+                    $.each(data, function(index, item) {
+                        var row = $('<tr>').appendTo(tbody);
+                        $('<td class="border px-4 py-2">').text(formatDate(item.timestamp)).appendTo(row); // Format timestamp
+                        $('<td class="border px-4 py-2">').text(item.sensor_id).appendTo(row);
+                        $('<td class="border px-4 py-2">').text(item.sensor_type).appendTo(row);
+                        $('<td class="border px-4 py-2">').text(item.value).appendTo(row);
+                        $('<td class="border px-4 py-2">').text(item.unit).appendTo(row);
+                        $('<td class="border px-4 py-2">').text(item.location).appendTo(row);
+                        $('<td class="border px-4 py-2">').text(item.status).appendTo(row);
+                        $('<td class="border px-4 py-2">').text(item.battery_level).appendTo(row);
+                        $('<td class="border px-4 py-2">').text(formatDate(item.calibration_date)).appendTo(row); // Format timestamp
+                        $('<td class="border px-4 py-2">').text(JSON.stringify(item.environment_context)).appendTo(row); // Convert dictionary to string
+                        $('<td class="border px-4 py-2">').text(item.data_quality).appendTo(row);
+                    
+                    });
+                }
+            
+                // Fetch data initially and then every 5 seconds
+                fetchData();
+                setInterval(fetchData, 5000);
+            });
+            
+            
+    </script>
+
+    {% endblock %}

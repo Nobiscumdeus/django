@@ -1,0 +1,9 @@
+{% extends 'sensor/base.html' %}
+
+{% block title %} Logout {% endblock %}
+{% block content %}
+
+    <h1 class="font-bold text-red-700 text-3xl text-center"> You have been Logged out  </h1>
+    <a href="{% url 'sensor:login' %}"> Login again ?</a>
+
+{% endblock %}

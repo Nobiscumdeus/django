@@ -1,0 +1,20 @@
+{% extends 'sensor/base.html' %}
+
+{% block title %} Login {% endblock %}
+{% block content %}
+
+   
+   
+    <div class="mt-4 max-w-md mx-auto my-auto  flex flex-col justify-center flex-center items-center w-full bg-dark p-8 rounded shadow-lg">
+        <h1 class="text-3xl font-bold mb-2 mt-4">Login</h1>
+        <form method="POST" class="w-full">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="w-full mt-3 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"> Login   </button> 
+        </form>
+    </div>
+
+
+
+{% endblock %}
