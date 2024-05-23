@@ -42,7 +42,7 @@
                     </form>
                    
                     {% else %}
-                    <a href="#" class="text-white hover:bg-green-700 px-3 py-2 rounded-md">Login</a>
+                    <a href="{% url 'sensor:login' %}" class="text-white hover:bg-green-700 px-3 py-2 rounded-md">Login</a>
                     <a href="{% url 'sensor:register' %}" class="text-white hover:bg-gray-700 px-3 py-2 rounded-md">Register</a>
                     {% endif %}
                 </div>
@@ -60,7 +60,7 @@
                 
                
                 {% else %}
-                <a href="#" class="text-white hover:bg-green-700 px-3 py-2 rounded-md">Login</a>
+                <a href="{% url 'sensor:login' %}" class="text-white hover:bg-green-700 px-3 py-2 rounded-md">Login</a>
                 <a href="{% url 'sensor:register' %}" class="text-white hover:bg-gray-700 px-3 py-2 rounded-md">Register</a>
                 {% endif %}
             </div>

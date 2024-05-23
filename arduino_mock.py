@@ -58,7 +58,7 @@ def send_mock_data():
             print(f"Status: {response.status_code}, Response:{response.text}")
             
             #Wait for a second before sending the next data point
-            time.sleep(10)
+            time.sleep(15)
             
         except Exception as e:
             print(f"Error: {e}")
