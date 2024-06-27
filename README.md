@@ -22,7 +22,7 @@ Follow these instructions to set up and run the Tasky app on your local machine 
 
    ```bash
    git clone https://github.com/your-username/tasky.git
-   cd tasky
+   cd benmore 
    ```
 
 2. **Install `pipenv`:**
@@ -65,7 +65,7 @@ Follow these instructions to set up and run the Tasky app on your local machine 
 
 8. **Access the application:**
 
-   Open your web browser and go to `http://127.0.0.1:8000` to see the Tasky application.
+   Open your web browser and go to `http://127.0.0.1:8000/dashboard` to see the Tasky application.
 
 ### Features
 
@@ -75,12 +75,12 @@ Follow these instructions to set up and run the Tasky app on your local machine 
 
 ### Project Structure
 
-- `tasky/`: Main project directory.
-- `tasky/settings.py`: Project settings.
-- `tasky/urls.py`: URL configurations.
-- `tasky/views.py`: View functions.
-- `tasky/templates/`: HTML templates.
-- `tasky/static/`: Static files (CSS, JS, images).
+- `benmore/`: Main project directory.
+- `benmore/settings.py`: Project settings.
+- `benmore/urls.py`: URL configurations.
+- `benmore/views.py`: View functions.
+- `benmore/templates/`: HTML templates.
+- `benmore/static/`: Static files (CSS, JS, images).
 
 ### Contributing
 
@@ -91,5 +91,3 @@ Contributions are welcome! Please fork the repository and create a pull request 
 This project is licensed under the MIT License.
 
 ---
-
-Feel free to customize the README as per your project's specific requirements and structure.
