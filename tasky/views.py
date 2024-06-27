@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView
 from django.urls import reverse_lazy 
 from .models import Task
+from .forms import TaskForm
+from .serializers import TaskSerializer
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
 # Create your views here.
 
 def dashboard(request):
@@ -19,7 +23,8 @@ class TaskListView(ListView):
     
 class TaskCreateView(CreateView):
     model=Task
-    template_name='tasky/dashboard.html'
+    form_class=TaskForm
+    template_name='tasky/add_task.html'
     context_object_name='task_create'
     success_url=reverse_lazy('tasky:dashboard')
 class TaskDetailView(DetailView):
@@ -41,4 +46,17 @@ class TaskDeleteView(DeleteView):
     success_url='tasky:dashboard'
     
 
+
+class TaskListByStatus(generics.ListAPIView):
+    serializer_class=TaskSerializer
+    permission_classes=[IsAuthenticated]
+    
+    
+    def get_queryset(self):
+        status=self.request.query_params.get('status',None)
+        if status is not None:
+            return Task.objects.filter(status=status)
+        return Task.objects.all()
+    
+    
 

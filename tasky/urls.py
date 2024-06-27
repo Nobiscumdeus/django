@@ -1,6 +1,7 @@
 from django.urls import path 
 from . import views 
-from .views import TaskListView,TaskUpdateView,TaskCreateView,TaskDeleteView,TaskDetailView
+from .views import (TaskListView,TaskUpdateView,TaskCreateView,TaskDeleteView,TaskDetailView,
+                    TaskListByStatus)
 
 app_name='tasky'
 
@@ -16,6 +17,7 @@ urlpatterns=[
     path('task/new/',TaskCreateView.as_view(),name='task-create'),
     path('task/<int:pk>/edit/',TaskUpdateView.as_view(),name='task-update'),
     path('task/<int:pk>/delete/',TaskDeleteView.as_view(),name='task-delete'),
+    path('api/tasks/', TaskListByStatus.as_view(), name='task-list-by-status'),
   
          
 ]

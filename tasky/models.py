@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractUser,Group,Permission #Helps us t
 
 from django.contrib.auth.models import Permission
 
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 
@@ -40,5 +42,5 @@ class Task(models.Model):
     priority=models.CharField(null=True,blank=True,max_length=20,choices=PRIORITY_CHOICES)
     due_date=models.DateTimeField()
     category=models.CharField(max_length=100,null=True,blank=True)
-    assigned_to=models.ForeignKey(Users,on_delete=models.CASCADE)
+    assigned_to=models.ForeignKey(User,on_delete=models.CASCADE)
 

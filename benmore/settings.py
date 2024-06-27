@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tasky', #Added the tasky app to the list of installed apps 
+    'rest_framework',
     
 ]
 
