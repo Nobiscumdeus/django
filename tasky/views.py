@@ -18,7 +18,15 @@ def responsive(request):
 class TaskListView(ListView):
     model=Task
     template_name='tasky/dashboard.html'
-    context_object_name='task_list'
+    context_object_name = 'tasks'  # Main queryset will be available as 'tasks'
+    
+    def get_context_data(self,**kwargs):
+        context=super().get_context_data(**kwargs)
+        context['in_progress_tasks'] = Task.objects.filter(status='in progress')
+        context['completed_tasks'] = Task.objects.filter(status='completed')
+        context['overdue_tasks'] = Task.objects.filter(status='overdue')
+        print(context)
+        return context
     
     
 class TaskCreateView(CreateView):

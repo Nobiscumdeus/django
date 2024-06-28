@@ -1,12 +1,25 @@
+{% extends 'tasky/base.html' %}
+
+
 {% block content %}
-    <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4">Add New Task</h1>
-        <form method="post" class="bg-white p-6 rounded-lg shadow-md">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Task</button>
-        </form>
+
+<div class="flex justify-center mb-4 bg-blue-700 min-h-screen">
+    <div class="w-full md:w-9/12 lg:w-7/12 xl:w-5/12">
+        <h2 class="text-center text-2xl mt-4 mb-8 text-lg font-bold"> Add New Task </h2>
+
+        <!-- Add New Task Form  -->
+        <div id="add-task" class="bg-white shadow-md rounded-lg p-6">
+         
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add New Task</button>
+            </form>
+
+           
+        </div>
     </div>
+</div>
 
 
-    {% endblock %}
+{% endblock %}
