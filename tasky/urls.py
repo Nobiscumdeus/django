@@ -1,7 +1,10 @@
 from django.urls import path 
 from . import views 
-from .views import (TaskListView,TaskUpdateView,TaskCreateView,TaskDeleteView,TaskDetailView,
-                    TaskListByStatus)
+from .views import (TaskUpdateView,TaskCreateView,TaskDetailView,
+                    RegisterView,LoginView
+                    
+                   )
+from . import views
 
 app_name='tasky'
 
@@ -10,14 +13,18 @@ app_name='tasky'
 The  End points for our tasks 
 '''
 urlpatterns=[
-    path('dashboard',views.dashboard,name='dashboard'),
-    path('responsive',views.responsive,name='responsive'),
-    path('task',TaskListView.as_view(),name='task-list'),
+    path('',views.home,name='home'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login',LoginView.as_view(),name='login'),
+    path('dashboard/',views.task_list_view,name='dashboard'),
+    
     path('task/<int:pk>/',TaskDetailView.as_view(),name='task-detail'),
     path('task/new/',TaskCreateView.as_view(),name='task-create'),
+    
     path('task/<int:pk>/edit/',TaskUpdateView.as_view(),name='task-update'),
-    path('task/<int:pk>/delete/',TaskDeleteView.as_view(),name='task-delete'),
-    path('api/tasks/', TaskListByStatus.as_view(), name='task-list-by-status'),
-  
+    
+    path('task/<int:pk>/delete/', views.task_delete_view, name='task-delete'),
+   
+   
          
 ]

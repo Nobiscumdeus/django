@@ -1,0 +1,31 @@
+{% extends 'tasky/base.html' %}
+
+{% block title %}
+ Login 
+{% endblock %}
+{% block content %}
+<div class="flex justify-center items-center">
+    <div class="w-full md:w-9/12 lg:w-7/12 xl:w-5/12 mb-3"> <!-- Equivalent to col-md-9 offset-md-2 -->
+        <h1 class="text-center text-3xl text-lg m-4">Login here</h1>
+
+        <!-- Login  Form -->
+        <div id="loginForm">
+           
+            <form method="POST" action="{% url 'tasky:login'%}">
+                {% csrf_token %}
+                {{form.as_p}} <br/>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Login</button> <!-- Equivalent to btn btn-primary btn-sm -->
+            </form>
+           
+            <div class="mt-3">
+                <span class="text-white">Don't have an account? </span>
+                <a href="{% url 'tasky:register'%}" class="text-blue-200 font-bold hover:underline">Sign up</a>
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

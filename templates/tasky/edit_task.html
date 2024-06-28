@@ -1,0 +1,25 @@
+{% extends 'tasky/base.html' %}
+
+
+{% block content %}
+
+<div class="flex justify-center mb-4 min-h-screen">
+    <div class="w-full md:w-9/12 lg:w-7/12 xl:w-5/12">
+        <h2 class="text-center text-2xl mt-4 mb-8 text-lg font-bold"> Edit Task </h2>
+      
+        <!-- Edit New Task Form  -->
+        <div id="add-task" class="bg-white shadow-md rounded-lg p-6">
+         
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="mt-2 bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update Task</button>
+            </form>
+
+           
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

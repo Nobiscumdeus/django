@@ -1,0 +1,47 @@
+{% extends 'tasky/base.html' %}
+
+
+{% block content %}
+<div class="flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-6">Task Detail</h1>
+        <table class="table-auto w-full text-left">
+            <tbody>
+                <tr class="border-t">
+                    <th class="px-4 py-2 font-medium">Title:</th>
+                    <td class="px-4 py-2">{{ task_detail.title }}</td>
+                </tr>
+                <tr class="border-t">
+                    <th class="px-4 py-2 font-medium">Description:</th>
+                    <td class="px-4 py-2">{{ task_detail.description }}</td>
+                </tr>
+                <tr class="border-t">
+                    <th class="px-4 py-2 font-medium">Due date</th>
+                    <td class="px-4 py-2">{{ task_detail.due_date }}</td>
+                </tr>
+                <tr class="border-t">
+                    <th class="px-4 py-2 font-medium">Category</th>
+                    <td class="px-4 py-2">{{ task_detail.category }}</td>
+                </tr>
+                <tr class="border-t">
+                    <th class="px-4 py-2 font-medium">Status</th>
+                    <td class="px-4 py-2">{{ task_detail.status }}</td>
+                </tr>
+                <tr class="border-t">
+                    <th class="px-4 py-2 font-medium">Priority</th>
+                    <td class="px-4 py-2">{{ task_detail.priority }}</td>
+                </tr>
+                <tr class="border-t">
+                    <th class="px-4 py-2 font-medium">Owner</th>
+                    <td class="px-4 py-2">{{ task_detail.assigned_to }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center mt-6">
+            <a href="{% url 'tasky:dashboard' %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
