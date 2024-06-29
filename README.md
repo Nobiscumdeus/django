@@ -1,4 +1,4 @@
-Sure! Here's a simple README to get someone started with the Tasky app using `pipenv` for managing dependencies:
+Below is a guide to launch the application
 
 ---
 
