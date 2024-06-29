@@ -20,7 +20,7 @@ from django.views.generic import TemplateView
 from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import SearchForm
-from .models import Task
+
 
 
 from django.http import JsonResponse

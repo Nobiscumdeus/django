@@ -167,7 +167,13 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white mb-4 mt-4">
   <!-- Card Header -->
   <div class="flex space-x-2 text-sm font-medium py-2 px-4 bg-gray-100 justify-center items-center">
-    <span class="py-1 px-2 rounded-md bg-yellow-100 text-yellow-700">{{ task_progress.priority }}</span>
+    <span class="py-1 px-2 rounded-md {% if task_progress.priority == 'high' %}
+    bg-red-100 text-red-700
+  {% elif task_progress.priority == 'medium' %}
+    bg-yellow-100 text-yellow-700
+  {% else %}
+    bg-green-100 text-green-700
+  {% endif %}">{{ task_progress.priority }}</span>
     <span class="py-1 px-2 rounded-md bg-blue-100 text-blue-700"><i class="fas fa-clock"></i> {{ task_progress.due_date }}</span>
     <span class="py-1 px-2 rounded-md bg-green-100 text-green-700">{{ task_progress.category }}</span>
   </div>
@@ -223,7 +229,13 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white mb-4 mt-4">
   <!-- Card Header -->
   <div class="flex space-x-2 text-sm font-medium py-2 px-4 bg-gray-100 justify-center items-center">
-    <span class="py-1 px-2 rounded-md bg-yellow-100 text-yellow-700">{{ task_completed.priority }}</span>
+    <span class="py-1 px-2 rounded-md {% if task_completed.priority == 'high' %}
+    bg-red-100 text-red-700
+  {% elif task_completed.priority == 'medium' %}
+    bg-yellow-100 text-yellow-700
+  {% else %}
+    bg-green-100 text-green-700
+  {% endif %}">{{ task_completed.priority }}</span>
     <span class="py-1 px-2 rounded-md bg-blue-100 text-blue-700"><i class="fas fa-clock"></i> {{ task_completed.due_date }}</span>
     <span class="py-1 px-2 rounded-md bg-green-100 text-green-700">{{ task_completed.category }}</span>
   </div>
@@ -275,7 +287,13 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white mb-4 mt-4">
   <!-- Card Header -->
   <div class="flex space-x-2 text-sm font-medium py-2 px-4 bg-gray-100 justify-center items-center">
-    <span class="py-1 px-2 rounded-md bg-yellow-100 text-yellow-700">{{ task_overdue.priority }}</span>
+    <span class="py-1 px-2 rounded-md {% if task_overdue.priority == 'high' %}
+    bg-red-100 text-red-700
+  {% elif task_overdue.priority == 'medium' %}
+    bg-yellow-100 text-yellow-700
+  {% else %}
+    bg-green-100 text-green-700
+  {% endif %}">{{ task_overdue.priority }}</span>
     <span class="py-1 px-2 rounded-md bg-blue-100 text-blue-700"><i class="fas fa-clock"></i> {{ task_overdue.due_date }}</span>
     <span class="py-1 px-2 rounded-md bg-green-100 text-green-700">{{ task_overdue.category }}</span>
   </div>
