@@ -14,6 +14,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.views import View
 from django.contrib.auth import login,authenticate,logout
+from django.http import JsonResponse
+
 # Create your views here.
 
 def home(request):
@@ -95,5 +97,64 @@ class LoginView(View):
                 pass
         return render(request,self.template_name,{'form':form})
         
+### The Custom Logout Function 
+class CustomLogoutView(View):
+    def get(self,request,*args,**kwargs):
+        logout(request)
+        return redirect('tasky:home')   
 
 
+
+
+#### Search View 
+
+
+from django.http import JsonResponse
+from .forms import SearchForm
+
+def search_view(request):
+    # Check if the request method is GET and if it's an AJAX request
+    if request.method == "GET" and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        form = SearchForm(request.GET)  # Bind the form with GET data
+        if form.is_valid():
+            # Extract form data
+            query = form.cleaned_data.get('query')
+            sort_by = form.cleaned_data.get('sort_by')
+            status = form.cleaned_data.get('status')
+            priority = form.cleaned_data.get('priority')
+
+            # Get all tasks
+            tasks = Task.objects.all()
+
+            # Apply filters
+            if query:
+                tasks = tasks.filter(title__icontains=query)
+            if status:
+                tasks = tasks.filter(status=status)
+            if priority:
+                tasks = tasks.filter(priority=priority)
+            if sort_by:
+                tasks = tasks.order_by(sort_by)
+
+            # Prepare results
+            results = [
+                {
+                    'title': task.title,
+                    'description': task.description,
+                    'due_date': task.due_date,
+                    'priority': task.get_priority_display(),
+                    'status': task.get_status_display(),
+                    'category': task.category,
+                    'assigned_to': task.assigned_to.username,
+                }
+                for task in tasks
+            ]
+            return JsonResponse({'results': results})  # Return JSON response
+    else:
+        form = SearchForm()  # Create an empty form if not an AJAX request
+    return render(request, 'tasky/search.html', {'form': form})  # Render the template with the form
+
+
+
+def search(request):
+    return render(request,'tasky/search.html')

@@ -65,7 +65,7 @@ Follow these instructions to set up and run the Tasky app on your local machine 
 
 8. **Access the application:**
 
-   Open your web browser and go to `http://127.0.0.1:8000/dashboard` to see the Tasky application.
+   Open your web browser and go to `http://127.0.0.1:8000/` to see the Tasky application.
 
 ### Features
 

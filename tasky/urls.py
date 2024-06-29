@@ -1,7 +1,7 @@
 from django.urls import path 
 from . import views 
 from .views import (TaskUpdateView,TaskCreateView,TaskDetailView,
-                    RegisterView,LoginView
+                    RegisterView,LoginView,CustomLogoutView
                     
                    )
 from . import views
@@ -16,6 +16,9 @@ urlpatterns=[
     path('',views.home,name='home'),
     path('register/', RegisterView.as_view(), name='register'),
     path('login',LoginView.as_view(),name='login'),
+    path('logout',CustomLogoutView.as_view(),name='logout'),
+    path('search/', views.search_view, name='search'),
+    path('searching/',views.search,name='searching'),
     path('dashboard/',views.task_list_view,name='dashboard'),
     
     path('task/<int:pk>/',TaskDetailView.as_view(),name='task-detail'),

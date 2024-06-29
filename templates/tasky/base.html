@@ -47,14 +47,14 @@
                 <div class="ourlinks hidden lg:flex space-x-4">
                     <a class="text-gray-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-gray-400 hover:text-white transition duration-300 ease-in-out" href="{% url 'tasky:dashboard' %}">Home</a>
                     <a class="text-gray-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-gray-400 hover:text-white transition duration-300 ease-in-out" href="#">Premium</a>
-                    <a class="text-red-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-red-400 hover:text-white transition duration-300 ease-in-out" href="">Sign Out</a>
+                    <a class="text-red-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-red-400 hover:text-white transition duration-300 ease-in-out" href="{% url 'tasky:logout' %}">Sign Out</a>
                   
                 </div>
 
                 {% else %}
                 <!-- Navigation Links for Large Screens -->
                 <div class="ourlinks hidden lg:flex space-x-4">
-                    <a class="text-gray-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-gray-400 hover:text-white transition duration-300 ease-in-out" href="{% url 'tasky:dashboard' %}">Home</a>
+                    <a class="text-gray-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-gray-400 hover:text-white transition duration-300 ease-in-out" href="{% url 'tasky:home' %}">Home</a>
                     <a class="text-gray-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-gray-400 hover:text-white transition duration-300 ease-in-out" href="#">Pricing</a>
                     <a class="text-gray-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-blue-400 hover:text-white transition duration-300 ease-in-out" href="{% url 'tasky:register' %}">Sign Up</a>
                     <a class="text-gray-500 rounded-full bg-slate-600 shadow-md p-4 hover:bg-green-400 hover:text-white transition duration-300 ease-in-out" href="{% url 'tasky:login' %}">Sign In</a>

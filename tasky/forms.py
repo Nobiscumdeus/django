@@ -115,3 +115,27 @@ class EditTaskForm(forms.ModelForm):
       
         }
         
+
+
+#### A search form 
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'form-input'}))
+    sort_by = forms.ChoiceField(choices=[
+        ('title', 'Title'),
+        ('due_date', 'Due Date'),
+        ('priority', 'Priority'),
+    ], required=False, widget=forms.Select(attrs={'class': 'form-select'}))
+    status = forms.ChoiceField(choices=[
+        ('', 'Any'),
+        ('in progress', 'In Progress'),
+        ('completed', 'Completed'),
+        ('overdue', 'Overdue')
+    ], required=False, widget=forms.Select(attrs={'class': 'form-select'}))
+    priority = forms.ChoiceField(choices=[
+        ('', 'Any'),
+        ('low', 'Low'),
+        ('medium', 'Medium'),
+        ('high', 'High')
+    ], required=False, widget=forms.Select(attrs={'class': 'form-select'}))
