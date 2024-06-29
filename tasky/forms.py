@@ -121,21 +121,21 @@ class EditTaskForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    query = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'form-input'}))
+    query = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'class': 'form-input form-select border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-blue-500'}))
     sort_by = forms.ChoiceField(choices=[
         ('title', 'Title'),
         ('due_date', 'Due Date'),
         ('priority', 'Priority'),
-    ], required=False, widget=forms.Select(attrs={'class': 'form-select'}))
+    ], required=False, widget=forms.Select(attrs={'class': 'form-select border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-blue-500'}))
     status = forms.ChoiceField(choices=[
         ('', 'Any'),
         ('in progress', 'In Progress'),
         ('completed', 'Completed'),
         ('overdue', 'Overdue')
-    ], required=False, widget=forms.Select(attrs={'class': 'form-select'}))
+    ], required=False, widget=forms.Select(attrs={'class': 'form-select border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-blue-500'}))
     priority = forms.ChoiceField(choices=[
         ('', 'Any'),
         ('low', 'Low'),
         ('medium', 'Medium'),
         ('high', 'High')
-    ], required=False, widget=forms.Select(attrs={'class': 'form-select'}))
+    ], required=False, widget=forms.Select(attrs={'class': 'form-select border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:border-blue-500'}))

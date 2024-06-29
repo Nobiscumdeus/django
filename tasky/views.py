@@ -15,6 +15,16 @@ from django.views.generic import TemplateView
 from django.views import View
 from django.contrib.auth import login,authenticate,logout
 from django.http import JsonResponse
+from django.views.generic import TemplateView
+
+from django.http import JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import SearchForm
+from .models import Task
+
+
+from django.http import JsonResponse
+from .forms import SearchForm
 
 # Create your views here.
 
@@ -26,19 +36,6 @@ def dashboard(request):
     return render(request,'tasky/dashboard.html')
 
 
-@login_required
-def task_list_view(request):
-    in_progress_tasks = Task.objects.filter(status='in progress').order_by('-due_date')
-    completed_tasks = Task.objects.filter(status='completed').order_by('-due_date')
-    overdue_tasks = Task.objects.filter(status='overdue').order_by('-due_date')
-
-    context = {
-        'in_progress_tasks': in_progress_tasks,
-        'completed_tasks': completed_tasks,
-        'overdue_tasks': overdue_tasks,
-    }
-
-    return render(request, 'tasky/dashboard.html', context)
 
 class RegisterView(CreateView,LoginRequiredMixin):
     model = User
@@ -105,56 +102,54 @@ class CustomLogoutView(View):
 
 
 
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'tasky/dashboard.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        # Add form to the context
+        context['form'] = SearchForm(self.request.GET or None)
+        
+        # Add tasks to the context
+        context['in_progress_tasks'] = Task.objects.filter(status='in progress').order_by('-due_date')
+        context['completed_tasks'] = Task.objects.filter(status='completed').order_by('-due_date')
+        context['overdue_tasks'] = Task.objects.filter(status='overdue').order_by('-due_date')
+        
+        return context
 
-#### Search View 
+    ##### Code to control the search 
+    def get(self, request, *args, **kwargs):
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            form = SearchForm(request.GET)
+            if form.is_valid():
+                query = form.cleaned_data.get('query')
+                sort_by = form.cleaned_data.get('sort_by')
+                status = form.cleaned_data.get('status')
+                priority = form.cleaned_data.get('priority')
 
+                tasks = Task.objects.all()
+                if query:
+                    tasks = tasks.filter(title__icontains=query)
+                if status:
+                    tasks = tasks.filter(status=status)
+                if priority:
+                    tasks = tasks.filter(priority=priority)
+                if sort_by:
+                    tasks = tasks.order_by(sort_by)
 
-from django.http import JsonResponse
-from .forms import SearchForm
-
-def search_view(request):
-    # Check if the request method is GET and if it's an AJAX request
-    if request.method == "GET" and request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        form = SearchForm(request.GET)  # Bind the form with GET data
-        if form.is_valid():
-            # Extract form data
-            query = form.cleaned_data.get('query')
-            sort_by = form.cleaned_data.get('sort_by')
-            status = form.cleaned_data.get('status')
-            priority = form.cleaned_data.get('priority')
-
-            # Get all tasks
-            tasks = Task.objects.all()
-
-            # Apply filters
-            if query:
-                tasks = tasks.filter(title__icontains=query)
-            if status:
-                tasks = tasks.filter(status=status)
-            if priority:
-                tasks = tasks.filter(priority=priority)
-            if sort_by:
-                tasks = tasks.order_by(sort_by)
-
-            # Prepare results
-            results = [
-                {
-                    'title': task.title,
-                    'description': task.description,
-                    'due_date': task.due_date,
-                    'priority': task.get_priority_display(),
-                    'status': task.get_status_display(),
-                    'category': task.category,
-                    'assigned_to': task.assigned_to.username,
-                }
-                for task in tasks
-            ]
-            return JsonResponse({'results': results})  # Return JSON response
-    else:
-        form = SearchForm()  # Create an empty form if not an AJAX request
-    return render(request, 'tasky/search.html', {'form': form})  # Render the template with the form
-
-
-
-def search(request):
-    return render(request,'tasky/search.html')
+                results = [
+                    {
+                        'title': task.title,
+                        'description': task.description,
+                        'due_date': task.due_date,
+                        'priority': task.get_priority_display(),
+                        'status': task.get_status_display(),
+                        'category': task.category,
+                        'assigned_to': task.assigned_to.username,
+                    }
+                    for task in tasks
+                ]
+                return JsonResponse({'results': results})
+        
+        return super().get(request, *args, **kwargs)
