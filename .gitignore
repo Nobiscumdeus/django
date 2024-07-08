@@ -1,2 +1,5 @@
 .websiteapp_venv
 .env
+*.env
+*.environment.txt
+environment.txt

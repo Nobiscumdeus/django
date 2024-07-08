@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from .models import Post
 
 def home(request):
-    return HttpResponse('<h3>Welcome to the home view of the blog </h3> ')
+    return render(request,'blogapp/base.html')
 
 def index(request):
     posts=Post.objects.all()

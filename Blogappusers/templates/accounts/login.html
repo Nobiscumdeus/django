@@ -5,8 +5,11 @@
     <h3> Login here </h3>
     <form method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <input type="submit" value="Login">
+        <small> 
+            <p><a href="{% url 'accounts:password_reset' %}"> Forgot Password </a></p>
+        </small>
     </form>
 
     {% endblock content %}

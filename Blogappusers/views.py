@@ -3,7 +3,7 @@ from .forms import UserRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.urls import reverse
 from django.http import HttpResponse
-from django.contrib.auth import authenticate,login  #These functions are provided by django
+from django.contrib.auth import authenticate,login,logout  #These functions are provided by django
 
 # Create your views here.
 def register_user(request):
@@ -34,8 +34,12 @@ def login_page(request):
             
             if user is not None:
                 login(request,user)
-                return redirect(reverse('indexpage'))
+                return redirect(reverse('Blogapp:home'))
     context={
         "form":form
     }
     return render(request,"accounts/login.html",context)
+
+def logout_user(request):
+    logout(request)
+    return redirect(reverse('Blogapp:home'))

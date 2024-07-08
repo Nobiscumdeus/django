@@ -224,3 +224,8 @@ EMAIL_PORT=587
 EMAIL_HOST_USER='emmanueladeola990@gmail.com'
 EMAIL_HOST_pASSWORD=''
 """
+
+"""
+Another way to send the email through the console
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackEnd'
+"""
